@@ -1,0 +1,111 @@
+
+plugins {
+    id 'application' // Adds support for building a CLI application in Java.
+    id 'org.openjfx.javafxplugin' version '0.0.10' // java fx
+    id 'org.beryx.jlink' version '2.24.4' // para generar runtime para una app modular
+}
+
+repositories {
+    // Use Maven Central for resolving dependencies.
+    mavenCentral()
+}
+
+
+// en cada uno de los archivos xml, en la linea xmlns="http://javafx.com/javafx/17"
+// se especifica la version de JavaFX que se desea usar. La que realmente importa
+// es la que se pone aqui en el gradle, pero si no coinciden entonces sale un
+// warning. Realmente no se que tan critico es poner la version correcta en el fxml.
+javafx {
+    version = "17.0.1"
+    modules = [ 'javafx.controls', 'javafx.fxml', 'javafx.base', 'javafx.graphics' ]
+}
+
+jlink {
+    launcher {
+        name = 'Orondo'
+        imageDir = file("$buildDir/Orondo-app-image")
+    }
+}
+
+dependencies {
+    // Use JUnit Jupiter for testing.
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+
+    // This dependency is used by the application.
+    implementation 'com.google.guava:guava:30.1.1-jre'
+
+
+    /**
+     * Cuando se usa ikonli 12.1.0 hay un problema compilar o correr
+     * orondo, al parecer hay un cambio importante en las dependencias
+     * de la version 11 a la 12. 
+     */
+    // dependencias de ikonli, para usar fontawesome en javafx
+    implementation 'org.kordamp.ikonli:ikonli-core:11.3.4'
+    implementation 'org.kordamp.ikonli:ikonli-javafx:11.3.4'
+    implementation 'org.kordamp.ikonli:ikonli-fontawesome5-pack:11.3.4'
+    implementation 'org.kordamp.ikonli:ikonli-metrizeicons-pack:11.3.4'
+    implementation 'org.kordamp.ikonli:ikonli-entypo-pack:11.3.4'
+    implementation 'org.kordamp.ikonli:ikonli-openiconic-pack:11.5.0'
+
+
+    // https://search.maven.org/search?q=g:org.mongodb%20AND%20a:mongodb-driver-sync
+    implementation 'org.mongodb:mongodb-driver-sync:4.1.0'
+
+    
+    
+    // tomado de https://bintray.com/bintray/jcenter/com.googlecode.json-simple%3Ajson-simple/1.1
+    // intente varios de jcenter que proveian json.simple y no todos sirven porque sale un urror
+    // con los paquetes.
+    implementation 'com.googlecode.json-simple:json-simple:1.1'
+    
+    // https://mvnrepository.com/artifact/com.google.code.gson/gson
+    // para algunos casos es mas aporpiado que json simple org
+    implementation 'com.google.code.gson:gson:2.8.6'
+
+
+    // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+    // The standard Java libraries fail to provide enough methods for manipulation of its core classes.
+    // Apache Commons Lang provides these extra methods.
+    // https://commons.apache.org/proper/commons-lang/
+    implementation 'org.apache.commons:commons-lang3:3.11'
+
+    // cliente MQTT - para implementar visualizacion en tiempo real de las ventas
+    // https://mvnrepository.com/artifact/org.eclipse.paho/org.eclipse.paho.client.mqttv3
+    implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.5'
+    
+
+    // cliente websocket
+    implementation 'com.neovisionaries:nv-websocket-client:2.10'
+
+    /**
+     *Para evitar que salgan estos warnings:
+     * SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+     *  SLF4J: Defaulting to no-operation (NOP) logger implementation
+     *  SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+    */ 
+    // no esta funcionando, bota error
+    // implementation 'org.apache.logging.log4j:log4j-slf4j-impl:2.12.1'
+
+    
+
+    // https://mvnrepository.com/artifact/com.antkorwin/better-strings
+    // para permitir string interpolations como en javascript y dart
+    // si var a=1; var b = 3; var c = 5; el siguiente string se transforma
+    // en tiempo de compilacion a : 
+    // "${a}+${b}=${c}" => "1+3=5"
+    // implementation group: 'com.antkorwin', name: 'better-strings', version: '0.4'
+    // annotationProcessor 'com.antkorwin:better-strings:0.4'
+
+
+}
+
+application {
+    // Define the main class for the application.
+    mainClass = 'Mejorana.Orondo2.inicio.MainApp'
+}
+
+tasks.named('test') {
+    // Use JUnit Platform for unit tests.
+    useJUnitPlatform()
+}

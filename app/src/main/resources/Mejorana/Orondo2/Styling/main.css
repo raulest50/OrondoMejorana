@@ -1,0 +1,94 @@
+
+/*
+color themes
+#D5E5F2  #5377A6  #F26D78
+#699EBF  #024873  #51278C
+#32738C  #025959  #79A2F2
+#F2A30F  #027368  #A7CFF2
+#D9863D  #0D0D0D  #F2F2F2
+
+https://openjfx.io/javadoc/14/javafx.graphics/javafx/scene/doc-files/cssref.html
+*/
+
+
+/**
+estilizado opciones del panel de entrada, productos analitica simulacion etc
+*/
+.intro_option{
+    -fx-background-color: #699EBF;
+    -fx-background-radius: 1%;
+    -fx-background-insets: 0, 1, 2;
+    /*-fx-text-fill:  black;*/
+}
+
+.intro_option:hover{
+    -fx-background-color:  #F2A30F;
+    -fx-background-insets: 0, 1, 2;
+}
+
+.intro_option:pressed{
+    -fx-background-color: #D9863D;
+    -fx-background-insets: 0, 1, 2;
+}
+
+/*panel de atras en la escena main*/
+.back_pane{
+    -fx-background-color: #32738C;
+}
+
+.banner_title{
+    -fx-background-color: #699EBF;
+    -fx-padding: 5px;    
+    /*-fx-effect: dropshadow(two-pass-box, rgba(0, 0, 0, 0.3), 10, 0.5, 0.0, 0.0);*/
+}
+
+/* solo aplica a los labels que sean hijos de un banner title */
+.banner_title > .label{
+    -fx-font-size : 17pt;
+    -fx-font-weight: bold;
+}
+
+.verde_c{
+    -fx-background-color: #dff2d5;
+}
+
+.combo-box-popup {
+    -fx-font-size : 14pt;
+}
+
+.combo-box {
+    -fx-font-size : 14pt;
+}
+
+.check-box{
+    -fx-font-size : 18pt;
+}
+
+
+.button{
+    -fx-font-size : 15pt;
+}
+
+.text-field{
+    -fx-font-size : 18pt;
+}
+
+
+.label{
+    -fx-font-size : 16pt;
+}
+
+.label .titulo1{
+    -fx-font-size : 20pt;
+}
+
+.toggle-button{
+    -fx-font-size : 14pt;
+}
+
+/*
+The following code shows how to style all buttons who's parent is an HBox.
+.hbox  > .button {  -fx-text-fill: black;  }
+*/
+
+

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../Styling/main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Mejorana.Orondo2.ventas.RegVentas_Controller">
+   <children>
+      <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+            <TableView fx:id="TV_Ventas" stylesheets="@../Styling/table.css" BorderPane.alignment="CENTER">
+              <columns>
+                <TableColumn fx:id="TC_TV_Consecutivo" prefWidth="75.0" text="Consecutivo" />
+                <TableColumn fx:id="TC_TV_Valor" prefWidth="75.0" text="Valor" />
+                  <TableColumn fx:id="TC_TV_Fecha" prefWidth="75.0" text="Fecha" />
+                  <TableColumn fx:id="TC_TV_Cliente" prefWidth="75.0" text="cliente" />
+              </columns>
+               <BorderPane.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </BorderPane.margin>
+            </TableView>
+         </left>
+         <top>
+            <HBox BorderPane.alignment="CENTER">
+               <children>
+                  <VBox>
+                     <children>
+                        <HBox alignment="CENTER">
+                           <children>
+                              <Label text="Desde">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <DatePicker fx:id="DTP_Desde" prefWidth="150.0">
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin></DatePicker>
+                              <Spinner fx:id="Sp_HH_Desde" prefWidth="100.0">
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </Spinner>
+                              <Label text=":">
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Spinner fx:id="Sp_MM_Desde" prefWidth="100.0" />
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="5.0" top="5.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox>
+                           <children>
+                              <Label text="Hasta">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <DatePicker fx:id="DTP_Hasta" prefWidth="150.0">
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin></DatePicker>
+                              <Spinner fx:id="Sp_HH_Hasta" prefWidth="100.0">
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </Spinner>
+                              <Label text=":">
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin></Label>
+                              <Spinner fx:id="Sp_MM_Hasta" prefWidth="100.0" />
+                           </children>
+                        </HBox>
+                     </children>
+                     <HBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox>
+                     <children>
+                        <Button mnemonicParsing="false" onMouseClicked="#onClick_B_Actualizar" text="Actualizar" />
+                     </children>
+                     <HBox.margin>
+                        <Insets bottom="20.0" left="5.0" right="5.0" top="20.0" />
+                     </HBox.margin>
+                  </VBox>
+               </children>
+            </HBox>
+         </top>
+         <center>
+            <TableView fx:id="TV_ItemVenta" stylesheets="@../Styling/table.css" BorderPane.alignment="CENTER">
+              <columns>
+                <TableColumn fx:id="TC_ItemVenta_Descripcion" prefWidth="135.33331549167633" text="Descripcion" />
+                <TableColumn fx:id="TC_ItemVenta_Precio" minWidth="8.666679382324219" prefWidth="52.000030517578125" text="P" />
+                  <TableColumn fx:id="TC_ItemVenta_N" minWidth="0.0" prefWidth="44.0" text="N" />
+                  <TableColumn fx:id="TC_ItemVenta_SubT" prefWidth="100.0" text="SubT" />
+              </columns>
+               <BorderPane.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </BorderPane.margin>
+            </TableView>
+         </center>
+         <right>
+            <VBox BorderPane.alignment="CENTER">
+               <children>
+                  <HBox>
+                     <children>
+                        <Label text="N Ventas">
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label fx:id="L_NVentas" text="----------" />
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="10.0">
+                     <children>
+                        <Label text="Valor Realizo">
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label fx:id="L_Realizo" text="---------" />
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="27.0">
+                     <children>
+                        <Label text="Ganancia">
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label fx:id="L_Ganancia" text="---------" />
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox layoutX="15.0" layoutY="15.0">
+                     <children>
+                        <Label text="\% Utilidad">
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label fx:id="L_PorcentUtilidad" text="----------" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </right>
+      </BorderPane>
+   </children>
+</AnchorPane>
