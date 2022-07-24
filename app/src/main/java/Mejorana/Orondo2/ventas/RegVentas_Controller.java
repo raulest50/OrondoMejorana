@@ -116,7 +116,7 @@ public class RegVentas_Controller {
     // la api de javafx invoca este metodo al inicio de operacion del controlador
     public void initialize(){
         ConfigTables();
-        //CargarVentas(this.getLDateRange());
+        CargarVentas(this.getLDateRange());
         InitSpinners();
     }
     

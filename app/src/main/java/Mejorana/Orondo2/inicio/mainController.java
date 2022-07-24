@@ -1,7 +1,7 @@
 package Mejorana.Orondo2.inicio;
 
-import java.net.URL;
-import java.util.ResourceBundle;
+//import java.net.URL;
+//import java.util.ResourceBundle;
 import Mejorana.Orondo2.OrondoDb.dbMapper;
 import Mejorana.Orondo2.Styling.Styler;
 import Mejorana.Orondo2.productos.productosController;

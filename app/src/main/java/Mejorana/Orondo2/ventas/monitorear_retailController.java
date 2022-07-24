@@ -5,8 +5,8 @@
  */
 package Mejorana.Orondo2.ventas;
 
-//import Orondo.Net.ListaVentaNotifyChangeMsg;
-//import Orondo.Net.MqttOrondoClient;
+import Mejorana.Orondo2.Net.ListaVentaNotifyChangeMsg;
+import Mejorana.Orondo2.Net.MqttOrondoClient;
 import Mejorana.Orondo2.OrondoDb.ItemVenta;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -26,7 +26,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-//import org.eclipse.paho.client.mqttv3.MqttException;
+import org.eclipse.paho.client.mqttv3.MqttException;
 import org.json.simple.parser.ParseException;
 
 /**
@@ -54,13 +54,13 @@ public class monitorear_retailController {
      */
     private HashMap<String, NodoBlock> NodosVentas = new HashMap<>();
     
-    /*
+    
     Consumer<String> cback = msg ->{
         try{this.LV_notifyChange(msg);} 
         catch(Exception e){Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "", e);}
     };
-    //MqttOrondoClient mqttCli = new MqttOrondoClient(cback);
-    */
+    MqttOrondoClient mqttCli = new MqttOrondoClient(cback);
+    
     
     
     
@@ -71,7 +71,6 @@ public class monitorear_retailController {
         
     }
     
-    /*
     public void ConectarAlBroker(){
         try{ // se Conecta al broker para iniciar comunicacion Mqtt
             mqttCli.Conectar();
@@ -79,9 +78,8 @@ public class monitorear_retailController {
             Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, e.getMessage());
         }
     }
-    */
     
-    /*
+    
     public void LV_notifyChange(String msg){
         try{
             ListaVentaNotifyChangeMsg lnm = new ListaVentaNotifyChangeMsg(msg);
@@ -94,7 +92,7 @@ public class monitorear_retailController {
             Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "LV_notifyChange(msg)", e);
         }
     }
-    */
+    
     
     
     /**

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Orondo.utils;
+package Mejorana.Orondo2.utils;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;

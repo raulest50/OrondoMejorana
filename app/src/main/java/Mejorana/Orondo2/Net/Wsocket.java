@@ -1,4 +1,4 @@
-package Mejorana.Orondo2.Net;
+package Orondo.Net;
 
 import com.neovisionaries.ws.client.HostnameUnverifiedException;
 import com.neovisionaries.ws.client.OpeningHandshakeException;

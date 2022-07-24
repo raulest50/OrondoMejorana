@@ -5,7 +5,7 @@
  */
 package Mejorana.Orondo2.OrondoDb;
 
-import Orondo.utils.Util;
+import Mejorana.Orondo2.utils.Util;
 import org.json.simple.JSONObject;
 
 

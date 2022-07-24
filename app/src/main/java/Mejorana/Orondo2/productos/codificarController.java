@@ -5,7 +5,6 @@ import Mejorana.Orondo2.OrondoDb.Validador;
 import Mejorana.Orondo2.OrondoDb.dbMapper;
 import Mejorana.Orondo2.Styling.Styler;
 import Mejorana.Orondo2.inicio.GenericDialogs;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;

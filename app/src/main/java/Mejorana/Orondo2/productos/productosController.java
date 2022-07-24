@@ -5,7 +5,6 @@
  */
 package Mejorana.Orondo2.productos;
 
-import Mejorana.Orondo2.productos.modificarController;
 import Mejorana.Orondo2.Styling.Styler;
 import Mejorana.Orondo2.inicio.Locations;
 import Mejorana.Orondo2.inicio.mainController;

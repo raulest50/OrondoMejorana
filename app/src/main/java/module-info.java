@@ -37,8 +37,20 @@ module Orondo2App {
     
     
     requires org.eclipse.paho.client.mqttv3; // mqtt client only
+    uses org.eclipse.paho.client.mqttv3.spi.NetworkModuleFactory;
     
     requires nv.websocket.client; // websocket server-client
+    
+    
+    requires jdk.net;
+    
+    requires java.net.http;
+    requires okhttp3;
+    
+    //requires better.strings; // para poder hacer string interpolation en java
+    
+    
+    
     
     // para evitar el erorr
     //accessible: module Orondo2App does not "opens Mejorana.Orondo2.inicio" to module javafx.fxml

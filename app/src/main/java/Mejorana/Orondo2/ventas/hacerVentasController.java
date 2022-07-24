@@ -5,7 +5,7 @@ import Mejorana.Orondo2.OrondoDb.Producto;
 import Mejorana.Orondo2.OrondoDb.Venta;
 import Mejorana.Orondo2.OrondoDb.dbMapper;
 import Mejorana.Orondo2.inicio.Locations;
-import Orondo.utils.Toast;
+import Mejorana.Orondo2.utils.Toast;
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -32,15 +32,12 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-/*
 import okhttp3.Call;
 import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-*/
-
 
 /**
  *
@@ -293,10 +290,10 @@ public class hacerVentasController {
     @FXML // cuando se hace click en el boton de imprimir 
     public void onAction_B_Imprimir(ActionEvent event){
         System.out.println("imprimir_remi");
-        //HttpPost_Imprimir();
+        HttpPost_Imprimir();
     }
     
-    /*
+    
     public void HttpPost_Imprimir(){
         
         ObservableList<ItemVenta> ol = this.TV_Ventas.getItems();
@@ -318,7 +315,6 @@ public class hacerVentasController {
             }
         }
     }
-    */
     
     public void RegistrarVenta(){
         ObservableList<ItemVenta> lit = TV_Ventas.getItems();
