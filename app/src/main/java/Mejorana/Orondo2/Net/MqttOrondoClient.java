@@ -116,7 +116,7 @@ public class MqttOrondoClient {
             // The messages obtained after subscribe will be executed here
             //System.out.println("Received message topic:" + topic);
             //System.out.println("Received message Qos:" + message.getQos());
-            //System.out.println("Received message content:${content}");
+            //System.out.println("Received message content:${content}".replace(${content}, content));
             onMessage.accept(content);
         }
 

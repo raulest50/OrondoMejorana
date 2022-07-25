@@ -134,7 +134,7 @@ public class monitorear_retailController {
         private void UpdateLabel(){
             int s = 0;
             for(ItemVenta iv:lv){s+=iv.getSubTotal();}
-            total_label.setText("${Integer.toString(s)} $");
+            total_label.setText(Integer.toString(s)+ " $");
         }
         
         private void SetStyle(){

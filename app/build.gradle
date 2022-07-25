@@ -122,8 +122,11 @@ dependencies {
     // si var a=1; var b = 3; var c = 5; el siguiente string se transforma
     // en tiempo de compilacion a : 
     // "${a}+${b}=${c}" => "1+3=5"
-    //implementation group: 'com.antkorwin', name: 'better-strings', version: '0.4'
-    //annotationProcessor 'com.antkorwin:better-strings:0.4'
+    // implementation group: 'com.antkorwin', name: 'better-strings', version: '0.4'
+    // annotationProcessor 'com.antkorwin:better-strings:0.4'
+    // decidi no usar mas esta libreria ya que ocurren muchas incompatibilidades
+    // cada que se actualiza la version de java y ademas parece que ya no esta 
+    // siendo desarrollada activamente.
     
 }
 

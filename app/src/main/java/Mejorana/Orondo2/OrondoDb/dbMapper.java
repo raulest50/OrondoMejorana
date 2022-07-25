@@ -215,7 +215,7 @@ public class dbMapper {
         ArrayList<Bson> lf = new ArrayList(); // lista de filtros
         String[] kw = descri.split(" "); // para cada elemento del split se crea un filtro
         for(String x : kw){
-            lf.add(regex("descripcion", ".*${x}.*", "i")); // el filtro es un elemento regex
+            lf.add(regex("descripcion", ".*${x}.*".replace("${x}", x), "i")); // el filtro es un elemento regex
         } // que comia el "like % %" del sql
         Iterator<Producto> it = getProductosCollection().find(and(lf)).iterator();
         ArrayList<Producto> lp = new ArrayList();
@@ -226,10 +226,11 @@ public class dbMapper {
     /**
      * encuentra los productos cuyo codigo de barras termina en
      * los digitos especificados por el sting b
+     * @param b
      * @return 
      */
     public ArrayList<Producto> getPrdByLastCod(String b){
-        Iterator<Producto> it = getProductosCollection().find(regex("_id",".*${b}$","i")).iterator();
+        Iterator<Producto> it = getProductosCollection().find(regex("_id",".*${b}$".replace("${b}", b),"i")).iterator();
         //String q = "{_id:{$regex:'.*%1s$'}}";//q = String.format(q, b);
         ArrayList<Producto> lp = new ArrayList();
         it.forEachRemaining((x)-> { lp.add(x); } );

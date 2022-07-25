@@ -140,8 +140,8 @@ public class RegVentas_Controller {
             dto = dto.plusMinutes((int) Sp_MM_Hasta.getValue());
             ldtr[0] = df;
             ldtr[1] = dto;
-            System.out.println("${ldtr[0]} - ${ldtr[1]}");
-            
+            System.out.println(ldtr[0]+" - "+ldtr[1]);
+            //System.out.println("${ldtr[0]} - ${ldtr[1]}");
             CargarVentas(ldtr);
         }
         TV_ItemVenta.getItems().setAll( new ArrayList<>() );

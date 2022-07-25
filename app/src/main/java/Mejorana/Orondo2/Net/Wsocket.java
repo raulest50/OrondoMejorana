@@ -81,22 +81,28 @@ public class Wsocket {
     
     /**
      * encapsula los metodos para eventos websocket
+     * 
+     * En este metodo se hacia uso bastante de:
+     * https://mvnrepository.com/artifact/com.antkorwin/better-strings
+     * pero se removio por incompatibilidades y en su lugar se uso la
+     * funcion .replace()
+     * 
      */
     private class WSadapter extends WebSocketAdapter {
 
         @Override
         public void onTextMessage(WebSocket websocket, String message) throws Exception {
-            System.out.println("onMessage: ${message}");
+            System.out.println("onMessage: ${message}".replace("${message}", message));
         }
 
         @Override
         public void onConnected(WebSocket websocket, Map<String, List<String>> headers) throws Exception {
-            System.out.println("onConnected: ${headers}");
+            System.out.println("onConnected: ${headers}".replace("${headers}", headers.toString()));
         }
 
         @Override
         public void onConnectError(WebSocket websocket, WebSocketException exception) throws Exception {
-            System.out.println("onConnectError: ${exception.getMessage()}");
+            System.out.println("onConnectError: ${ex}".replace("${ex}", exception.getMessage()));
         }
         
         

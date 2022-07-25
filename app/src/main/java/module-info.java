@@ -62,4 +62,10 @@ module Orondo2App {
     
     exports Mejorana.Orondo2.inicio;
     
+    // si no se colocan estos exports sale el error:
+    // org.bson.codecs.configuration.CodecConfigurationException: Can't find a codec for class ... producto
+    exports Mejorana.Orondo2.productos;
+    exports Mejorana.Orondo2.OrondoDb;
+    exports Mejorana.Orondo2.Styling;
+    
 }

@@ -146,8 +146,11 @@ public class ItemVenta {
     }
     
     public String getCantidad_str(){
-        if(this.fraccionado) return "${Cantidad} ${getMeasureUnit()}";
-        else return "${Cantidad}";
+        if(this.fraccionado) 
+            return Integer.toString(Cantidad) + "  " + getMeasureUnit();
+        
+        else 
+            return Integer.toString(Cantidad);
     }
     
     public int getSubTotal(){

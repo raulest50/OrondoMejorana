@@ -33,10 +33,9 @@ public class Validador {
         // verificacion codigo o _id es irrepetible
         ArrayList tmp = dbm.GetProductById(p._id);
         if( !(tmp.isEmpty()) ){
-            String epn = ((Producto) tmp.get(0)).descripcion;
             r = false;
             msg += "\n- el codigo introducido ya esta asignado al prodcuto:\n "
-                    + "${epn}";
+                    + ((Producto) tmp.get(0)).descripcion;
         }
         
         ag.add(r);

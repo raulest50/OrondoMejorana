@@ -84,7 +84,7 @@ public class PopUp_NegociarController {
         
         TF_Cantidad.textProperty().addListener((obs, old, neu)->{
             try{
-                System.out.println(" old: ${old}   nuevo: ${neu}");
+                System.out.println(" old: ${old}   nuevo: ${neu}".replace("${old}", old).replace("${neu}", neu));
                 int temp = Integer.parseInt(neu);
                 if(temp == 0) iv.setCantidad(1);
                 else iv.setCantidad(temp);
