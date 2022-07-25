@@ -35,6 +35,11 @@ jlink {
         name = 'Orondo'
         imageDir = file("$buildDir/Orondo-app-image")
     }
+    
+    mergedModule {
+        additive = true  // redundant, because excludeXXX() methods are also present
+        requires transitive 'jdk.net'
+    }
 }
 
 
@@ -85,7 +90,7 @@ dependencies {
 
     // cliente MQTT - para implementar visualizacion en tiempo real de las ventas
     // https://mvnrepository.com/artifact/org.eclipse.paho/org.eclipse.paho.client.mqttv3
-    implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.5'
+    // implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.5'
     
 
     // cliente websocket

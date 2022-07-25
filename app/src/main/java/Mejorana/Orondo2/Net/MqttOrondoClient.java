@@ -3,6 +3,8 @@ package Mejorana.Orondo2.Net;
 import java.util.function.Consumer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+/* //************************
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttCallbackExtended;
 import org.eclipse.paho.client.mqttv3.MqttClient;
@@ -10,6 +12,8 @@ import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
+*/   //************************
+
 
 
 /**
@@ -25,6 +29,7 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
  */
 public class MqttOrondoClient {
     
+    /*   //************************
     public final String subTopic = "listasVentas/"; // topico a subcribir 
     public final String pubTopic = "orondo/comandos"; // topico a publicar
     public final String content = "Hola mundo mqtt";
@@ -72,12 +77,14 @@ public class MqttOrondoClient {
         // Subscribe
         client.subscribe(subTopic);
     }
-    
+    */   //***********************
     
     /**
      * Clase que define como se reacciona a los eventos MQTT. se debe pasar
      * a MqttOrondoClient
      */
+    
+    /* //************************
     private class PushCallback implements MqttCallbackExtended{
         
         private Consumer onMessage;
@@ -85,7 +92,7 @@ public class MqttOrondoClient {
         public PushCallback(Consumer onMessage) {
             this.onMessage = onMessage;
         }
-        
+       */  //************************
         /**
          * gracias a options.setAutomaticReconnect(true); orondo se reconecta
          * de manera robusta al broker cada que hay un problema, sin embargo
@@ -93,6 +100,7 @@ public class MqttOrondoClient {
          * @param bln
          * @param string 
          */
+    /*  //************************
         @Override
         public void connectComplete(boolean bln, String string) {
             try {
@@ -126,4 +134,6 @@ public class MqttOrondoClient {
         }
     }
     
+    
+    */   //************************
 }

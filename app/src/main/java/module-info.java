@@ -36,8 +36,8 @@ module Orondo2App {
     requires java.logging;
     
     
-    requires org.eclipse.paho.client.mqttv3; // mqtt client only
-    uses org.eclipse.paho.client.mqttv3.spi.NetworkModuleFactory;
+    //requires org.eclipse.paho.client.mqttv3; // mqtt client only
+    //uses org.eclipse.paho.client.mqttv3.spi.NetworkModuleFactory;
     
     requires nv.websocket.client; // websocket server-client
     
