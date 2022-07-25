@@ -50,6 +50,8 @@ module Orondo2App {
     //requires better.strings; // para poder hacer string interpolation en java
     
     
+    // para javax.print y clases similares
+    requires java.desktop;
     
     
     // para evitar el erorr

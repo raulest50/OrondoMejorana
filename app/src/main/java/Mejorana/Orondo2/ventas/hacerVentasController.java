@@ -4,12 +4,16 @@ import Mejorana.Orondo2.OrondoDb.ItemVenta;
 import Mejorana.Orondo2.OrondoDb.Producto;
 import Mejorana.Orondo2.OrondoDb.Venta;
 import Mejorana.Orondo2.OrondoDb.dbMapper;
+import Mejorana.Orondo2.ThermalPrint.RPT008_3nstar;
+import Mejorana.Orondo2.inicio.GenericDialogs;
 import Mejorana.Orondo2.inicio.Locations;
 import Mejorana.Orondo2.utils.Toast;
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -32,6 +36,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javax.print.PrintException;
 import okhttp3.Call;
 import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
@@ -290,7 +295,31 @@ public class hacerVentasController {
     @FXML // cuando se hace click en el boton de imprimir 
     public void onAction_B_Imprimir(ActionEvent event){
         System.out.println("imprimir_remi");
-        HttpPost_Imprimir();
+        //HttpPost_Imprimir();
+        UsbImprimir();
+    }
+    
+    
+    public void UsbImprimir(){
+        RPT008_3nstar printer = new RPT008_3nstar();
+        
+        ObservableList<ItemVenta> ol = this.TV_Ventas.getItems();
+        if(ol.size()>= 1){ // si la lista no de venta no esta vacia.
+            LinkedList<ItemVenta> lit = new LinkedList<>();
+            ol.iterator().forEachRemaining((x) -> { lit.add(x); });
+            
+            try {
+                printer.ImprimirRemision(lit);
+                
+            } catch (NullPointerException ex) {
+                Logger.getLogger(hacerVentasController.class.getName()).log(Level.SEVERE, null, ex);
+                GenericDialogs.Error("NullPointerException", "", "GetPrint Service retorna null");
+            } catch (PrintException ex) {
+                Logger.getLogger(hacerVentasController.class.getName()).log(Level.SEVERE, null, ex);
+                GenericDialogs.Error("PrintException", ex.toString(), ex.getMessage());
+            }
+            
+        }
     }
     
     
