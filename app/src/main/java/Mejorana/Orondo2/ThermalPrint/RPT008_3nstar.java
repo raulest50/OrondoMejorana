@@ -25,16 +25,27 @@ import javax.print.SimpleDoc;
  */
 public class RPT008_3nstar {
     
+    
+    final String TITLE = """
+                        ,__ __                                        
+                       /|  |  |      o                                
+                        |  |  |   _     __   ,_    __,   _  _    __,  
+                        |  |  |  |/  | /  \\_/  |  /  |  / |/ |  /  |  
+                        |  |  |_/|__/|/\\__/    |_/\\_/|_/  |  |_/\\_/|_/
+                                    /|                                
+                                    \\|                                
+                      """;
+    
     final String PRINTER_NAME = "POS-80C";
         
     final String REMISION_HEADER = 
             """
-            Mejorana Mercado Saludable \n
-            NIT: 43475437 \n
-            WhastApp: 3052626126\n
-            instagram: @mejorana \n
-            Direccion: Av 2BN #73C-02 \n
-            Barrio: Brisas de los Alamos \n
+                        Mercado Saludable \n
+            NIT: 43475437 
+            WhastApp: 3052626126
+            instagram: @mejorana
+            Direccion: Av 2BN #73C-02
+            Barrio: Brisas de los Alamos
             \n
             """;
         
@@ -47,13 +58,18 @@ public class RPT008_3nstar {
         
         String body = "";
         
+        int suma = 0;
+        
         for(ItemVenta iv : li){
             if(body.length() >=47 ) body = body + iv.getDescripcion().substring(0, 46) + "\n";
             else body = body + iv.getDescripcion() + "\n";
             body = body + iv.getCantidad() + "  x  "  + iv.getUnitPrecio() + "  =  " + iv.getSubTotal() + "\n";
+            suma += iv.getSubTotal();
         }
         
-        String text = REMISION_HEADER + body;
+        body += "TOTAL A PAGAR = " + Integer.toString(suma);
+        
+        String text = TITLE + REMISION_HEADER + body;
         
         
         PrintService printer = GetPrintService();
@@ -61,8 +77,6 @@ public class RPT008_3nstar {
         DocPrintJob job = printer.createPrintJob();  
         DocFlavor flavor = DocFlavor.BYTE_ARRAY.AUTOSENSE;
         Doc doc = new SimpleDoc(Bytes.concat(text.getBytes(), pcut), flavor, null);
-        //Doc doc = new SimpleDoc( new byte[] {0x0d, 0x0a} , flavor, null);
-        //Doc doc = new SimpleDoc( new byte[] {0x1D, 0x56, 0x42, 0x00, 0x0a} , flavor, null);
         job.print(doc, null);
         
     }

@@ -321,5 +321,6 @@ public class codificarController {
         TextField_StockInit.setText("");
         CMBox_grupo.setVisible(false);
         Button_Importar.setVisible(false);
+        TextArea_keywords.setText("");
     }
 }

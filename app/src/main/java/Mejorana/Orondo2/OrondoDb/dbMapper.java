@@ -377,6 +377,18 @@ public class dbMapper {
         }
         
     }
+
+    public ArrayList<Producto> getPrdByKeyWords(String keywords) {
+        ArrayList<Bson> lf = new ArrayList(); // lista de filtros
+        String[] kw = keywords.split(" "); // para cada elemento del split se crea un filtro
+        for(String x : kw){
+            lf.add(regex("keywords", ".*${x}.*".replace("${x}", x), "i")); // el filtro es un elemento regex
+        } // que comia el "like % %" del sql
+        Iterator<Producto> it = getProductosCollection().find(and(lf)).iterator();
+        ArrayList<Producto> lp = new ArrayList();
+        it.forEachRemaining((x)->{ lp.add(x); }); // se pasan los elemntos del iterador a un arraylist
+        return lp;
+    }
 }
 
 /**

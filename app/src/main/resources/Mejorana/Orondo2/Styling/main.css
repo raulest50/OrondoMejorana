@@ -73,6 +73,10 @@ estilizado opciones del panel de entrada, productos analitica simulacion etc
     -fx-font-size : 18pt;
 }
 
+.text-area{
+    -fx-font-size : 16pt;
+}
+
 
 .label{
     -fx-font-size : 16pt;

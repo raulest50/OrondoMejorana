@@ -75,8 +75,11 @@ public class modificarController {
     // busqueda por coincidencias parciaes en la descripcion
     public final String B_DESCRI = "Descripcion";
     
-    //
+    // ultimos del codigo. muy util para buscar codigos largos cuando no se tiene 
+    // lector de codigo de barras
     public final String B_LAST_CODE = "Ultimos del Codigo";
+    
+    public final String B_KEYWORDS = "Palabras Clave";
     
     public void initialize() {
         
@@ -89,7 +92,7 @@ public class modificarController {
         TC_Iva.setCellValueFactory(new PropertyValueFactory<>("iva"));
         
         
-        itemsComboB.addAll(this.B_DESCRI, this.B_CODIGO_EXACT, this.B_LAST_CODE);
+        itemsComboB.addAll(this.B_DESCRI, this.B_CODIGO_EXACT, this.B_LAST_CODE, this.B_KEYWORDS);
         CB_OpcionesB.setItems(itemsComboB);
         CB_OpcionesB.getSelectionModel().selectFirst();
     }
@@ -116,6 +119,7 @@ public class modificarController {
             case B_CODIGO_EXACT -> lista = dbm.GetProductById(b);
             case B_DESCRI -> lista = dbm.GetByDescripcion(b);
             case B_LAST_CODE -> lista = dbm.getPrdByLastCod(b);
+            case B_KEYWORDS -> lista = dbm.getPrdByKeyWords(b);
         }
         
         TV_Productos.getItems().setAll(lista);

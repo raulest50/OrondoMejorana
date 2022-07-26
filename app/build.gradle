@@ -36,6 +36,7 @@ jlink {
         imageDir = file("$buildDir/Orondo-app-image")
     }
     
+    // soluciona error de merged module cannot access jdk.net ... some class
     mergedModule {
         additive = true  // redundant, because excludeXXX() methods are also present
         requires transitive 'jdk.net'
