@@ -140,7 +140,7 @@ public class RegVentas_Controller {
             dto = dto.plusMinutes((int) Sp_MM_Hasta.getValue());
             ldtr[0] = df;
             ldtr[1] = dto;
-            System.out.println(ldtr[0]+" - "+ldtr[1]);
+            //System.out.println(ldtr[0]+" - "+ldtr[1]);
             //System.out.println("${ldtr[0]} - ${ldtr[1]}");
             CargarVentas(ldtr);
         }
@@ -217,7 +217,8 @@ public class RegVentas_Controller {
         ArrayList<Venta> lv = dbm.getVentas(ldtr);
         L_NVentas.setText(Integer.toString(lv.size()));
         TV_Ventas.getItems().setAll(lv);
-        
+        //System.out.println(lv.size());
+        //System.out.println(lv);
         int Scosto = 0;
         int SVenta = 0;
         for(Venta v : lv){

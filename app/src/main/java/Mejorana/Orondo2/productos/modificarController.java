@@ -20,6 +20,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -95,6 +96,25 @@ public class modificarController {
         itemsComboB.addAll(this.B_DESCRI, this.B_CODIGO_EXACT, this.B_LAST_CODE, this.B_KEYWORDS);
         CB_OpcionesB.setItems(itemsComboB);
         CB_OpcionesB.getSelectionModel().selectFirst();
+        
+        
+        // cuando se hace doble click sobre un producto, sale un cuadro
+        // informativo con los keywords. Los keywords deberian contener
+        // para que sirve el producto como se debe consumir y si tiene
+        // contraindicaciones etc, cualquier informacion relevante del producto
+        // tomado de https://stackoverflow.com/questions/26563390/detect-doubleclick-on-row-of-tableview-javafx
+        TV_Productos.setRowFactory(tv ->{
+            TableRow<Producto> row = new TableRow<>();
+            row.setOnMouseClicked(event ->{
+                if(event.getClickCount() == 2 && !row.isEmpty() ){
+                    Producto p = row.getItem();
+                    GenericDialogs.Info(p.descripcion,
+                            "ultima actulizacion :" + p.getLast_updt(),
+                            p.keywords);
+                }
+            });
+            return row;
+        });
     }
     
     
