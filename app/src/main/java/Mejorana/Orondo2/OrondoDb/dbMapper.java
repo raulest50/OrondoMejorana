@@ -261,8 +261,8 @@ public class dbMapper {
         BasicDBObject query = new BasicDBObject("fecha", //
                       new BasicDBObject("$gte", d[0]).append("$lt", d[1]));
         
-        //Iterator<Venta> it = getVentaCollection().find(query).iterator();
-        //it.forEachRemaining((x) -> { lv.add(x); });
+        Iterator<Venta> it = getVentaCollection().find(query).iterator();
+        it.forEachRemaining((x) -> { lv.add(x); });
         
         System.out.println("**********************");
         System.out.println(lv.size());
