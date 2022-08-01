@@ -61,7 +61,7 @@ public class RPT008_3nstar {
         int suma = 0;
         
         for(ItemVenta iv : li){
-            if(body.length() >=47 ) body = body + iv.getDescripcion().substring(0, 46) + "\n";
+            if(iv.getDescripcion().length() >=47 ) body = body + iv.getDescripcion().substring(0, 46) + "\n";
             else body = body + iv.getDescripcion() + "\n";
             body = body + iv.getCantidad() + "  x  "  + iv.getUnitPrecio() + "  =  " + iv.getSubTotal() + "\n";
             suma += iv.getSubTotal();

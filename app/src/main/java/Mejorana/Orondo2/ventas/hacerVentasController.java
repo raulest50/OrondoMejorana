@@ -274,6 +274,10 @@ public class hacerVentasController {
             TV_Busqueda.requestFocus();
             TV_Busqueda.getSelectionModel().select(0);
         }
+        
+        if(CB_OpcionesB.getSelectionModel().getSelectedItem().equals(this.B_CODIGO_EXACT)){
+            TF_BuscarProducto.selectAll();
+        }
     }
     
     @FXML
